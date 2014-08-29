@@ -17,5 +17,7 @@ As [resumed](https://drive.google.com/file/d/0ByO2OczyC7ZbcUNwSUUzZWVwem8/edit?u
 
 The survey is done by a public institution, to a students of public (and some private) universities in a matter of public interest.  However the survey itself is not available in a Open Data format. For this reason my aim is to merge all the public data of this survey and release them for the public. 
 
+My technical background in R and in Python that could help to extract and merge all of this information are, for the time being, limited to the courses "Computing for Data Analysis", "Data analysis" and "Getting and cleaning data" from Coursera, the first 25 lessons of [learn python the hardway](http://learnpythonthehardway.org/book/) and I am going to begin the course "An introduction to interactive programming in Python" also from Coursera.
+I have also quite experience in SQL and Access, some knowledge of VBA and a deep domain of Excel. 
 
 >The next step should be go to the workings document. 
