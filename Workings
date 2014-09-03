@@ -1,0 +1,31 @@
+
+#These workings are for R Code
+
+#Step 0: Create a folder with workings and data. 
+getwd()
+if(!file.exists("HEGrad")){dir.create("HEGrad")}
+setwd(.\\HEGrad")
+if(!file.exists("data")){dir.create("data")}
+
+#setwd(.\\data")
+
+
+#Step 1: Download a file
+
+#Create a folder
+
+dateDownloaded <-date()
+dateDownloaded
+
+###Add the folder data the datetime (concatenate the names)  <---------DO THIS
+
+if(!file.exists("data")){dir.create("data")}
+
+
+fileUrl <- "URLXXXXXXXx"
+download.file(fileUrl,destfile=(./data/NAME.xlsx, method = "curl") 
+  CHECH METHOD CURL
+  list.files("./data")
+
+
+  
