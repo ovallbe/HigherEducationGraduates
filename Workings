@@ -2,24 +2,31 @@
 #These workings are for R Code
 
 #Step 0: Create a folder with workings and data. 
-getwd()
-if(!file.exists("HEGrad")){dir.create("HEGrad")}
-setwd(.\\HEGrad")
-if(!file.exists("data")){dir.create("data")}
+if (!file.exists("HE_Grad")) {
+  dir.create("HE_Grad")
+}
 
-#setwd(.\\data")
+setwd("./HE_Grad")
+
+if(!file.exists("data")){dir.create("data")}
 
 
 #Step 1: Download a file
 
 #Create a folder
 
-dateDownloaded <-date()
+dateDownloaded <-format(Sys.time(),"%Y%m%d")
 dateDownloaded
 
-###Add the folder data the datetime (concatenate the names)  <---------DO THIS
 
-if(!file.exists("data")){dir.create("data")}
+#About the date formats
+#http://www.statmethods.net/input/dates.html
+
+
+todayData <- paste("data",dateDownloaded)
+if(!file.exists(todayData)){dir.create(todayData)}
+
+###Add the folder data the datetime (concatenate the names)  <---------NEED TO DOWNLOAD ALL THE NAMES
 
 
 fileUrl <- "URLXXXXXXXx"
