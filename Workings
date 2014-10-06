@@ -76,6 +76,11 @@ First_page[links_lines]
 selected_lines  <- First_page[links_lines]
 nchar( selected_lines[11])
 str_locate(selected_lines,"href=")
+line_position <-str_locate(selected_lines,"href=")
+substr(selected_lines[11],line_position[11,1],line_position[11,2])
+ str_locate(selected_lines,".html")
+ 
+ ## <<<<-------- Identify the webs and make a vector withall the links
 
 
 
