@@ -1,3 +1,9 @@
+The R function system.time will report the amount of time any operation in R uses
+
+install.packages("stringr")
+install.packages("knitr")
+install.packages("ggplot2")
+library("stringr")
 
 #These workings are for R Code
 
@@ -33,7 +39,6 @@ if(!file.exists(todayData)){dir.create(todayData)}
 #First adress: This one has the URLs of 5 pages, one for field of study.  
 # http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio.html
 
-install.packages("knitr")
 
 download.file('https://raw.github.com/fredheir/WebScraping/master/Lecture1/p1.Rpres',
 destfile='p1.Rpres')
@@ -53,9 +58,24 @@ install.packages("Hmisc")
 rm(list=ls())
 
 #I have to look for the links, in html all that is between the commas after href=""
+#I have to recover my notes of "Regular Expressions" of the "Computer for Data Analysis" course..
+
+#I extract with substring, but I need to identify the exact point of each string. 
+substr("abcdef", 2, 4)
+substring("abcdef", 1:6, 1:6)
 
 
+ str_locate(selected_lines,"href=")
 
+con = url("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio.html")
+htmlCode=readLines(con)
+close(con)
+First_page = htmlCode
+links_lines <-grep("href=",First_page)
+First_page[links_lines]
+selected_lines  <- First_page[links_lines]
+nchar( selected_lines[11])
+str_locate(selected_lines,"href=")
 
 
 
