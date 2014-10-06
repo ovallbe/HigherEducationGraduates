@@ -22,11 +22,42 @@ dateDownloaded
 #About the date formats
 #http://www.statmethods.net/input/dates.html
 
-
 todayData <- paste("data",dateDownloaded)
 if(!file.exists(todayData)){dir.create(todayData)}
 
 ###Add the folder data the datetime (concatenate the names)  <---------NEED TO DOWNLOAD ALL THE NAMES
+
+
+#######Data sources
+#Our next step is to create a list with all the urls of each file that we want. 
+#First adress: This one has the URLs of 5 pages, one for field of study.  
+# http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio.html
+
+install.packages("knitr")
+
+download.file('https://raw.github.com/fredheir/WebScraping/master/Lecture1/p1.Rpres',
+destfile='p1.Rpres')
+
+download.file('https://raw.github.com/fredheir/WebScraping/master/Lecture1/p1.Rpres',
+destfile='p1.Rmd')
+
+#Web scrapping: http://www.r-bloggers.com/web-scraping-in-r/
+#http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/
+#Main Functions
+#readLines() --> Creates a character vector, Lenght+ number of lines in the html code, 
+#Hmisc package
+install.packages("Hmisc")
+#substring.location(...) ; grep(...) ; substr(...) ; strsplit(...
+
+#I clean the environment data
+rm(list=ls())
+
+#I have to look for the links, in html all that is between the commas after href=""
+
+
+
+
+
 
 
 fileUrl <- "URLXXXXXXXx"
