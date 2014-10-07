@@ -65,8 +65,8 @@ substr("abcdef", 2, 4)
 substring("abcdef", 1:6, 1:6)
 
 
- str_locate(selected_lines,"href=")
 
+library("stringr")
 con = url("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio.html")
 htmlCode=readLines(con)
 close(con)
@@ -80,10 +80,17 @@ line_position <-str_locate(selected_lines,"href=")
 substr(selected_lines[11],line_position[11,1],line_position[11,2])
  str_locate(selected_lines,".html")
  
+my_lines <- as.data.frame(selected_lines)
+ 
  ## <<<<-------- Identify the webs and make a vector withall the links
 
+> sel_lines_integ <- toString(selected_lines)
+> sel_lines_integ
 
-
+> string_position <-str_locate(sel_lines_integ,"href=")
+> string_position
+nchar(my_lines[1,1])
+Error in nchar(my_lines[1, 1]) : 'nchar()' requires a character vector
 
 fileUrl <- "URLXXXXXXXx"
 download.file(fileUrl,destfile=(./data/NAME.xlsx, method = "curl") 
