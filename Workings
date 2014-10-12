@@ -45,6 +45,12 @@ destfile='p1.Rpres')
 
 download.file('https://raw.github.com/fredheir/WebScraping/master/Lecture1/p1.Rpres',
 destfile='p1.Rmd')
+######REGULAR EXPRESSIONS CHEAT FACT
+#http://www.endmemo.com/program/R/grep.php
+#https://developer.gnome.org/glib/stable/glib-regex-syntax.html
+#http://stackoverflow.com/questions/2443127/how-can-i-use-r-rcurl-xml-packages-to-scrape-this-webpage
+#http://stackoverflow.com/questions/3746256/extract-links-from-webpage-using-r
+#links<-strsplit(selected_lines,"a href=")[[1]]
 
 #Web scrapping: http://www.r-bloggers.com/web-scraping-in-r/
 #http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/
@@ -96,6 +102,19 @@ fileUrl <- "URLXXXXXXXx"
 download.file(fileUrl,destfile=(./data/NAME.xlsx, method = "curl") 
   CHECH METHOD CURL
   list.files("./data")
+  
+  
+  ###### Option 1
+  > con = url("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio.html")
+> First_page=readLines(con)
+> close(con)
+> links_lines <-grep("href=",First_page)
+> selected_lines  <- First_page[links_lines]
+list_sl <- as.list(selected_lines)
+list2 <- sub(".*href=","", list_sl)
+list3 <- sub("><.*","",list2)
+  
+  
 
 
   
