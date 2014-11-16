@@ -166,4 +166,5 @@ NOVEMBER WORKINGS
 socials_page=readLines(con2)
 socials_frame<-data.frame(socials_page)
 test1<-str_match(socials_frame[,1], '<a href="([^"]*).xls')
+ test2<-subset(test1[,2],!is.na(test1[,2]))
   
