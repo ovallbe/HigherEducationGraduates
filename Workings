@@ -167,4 +167,10 @@ socials_page=readLines(con2)
 socials_frame<-data.frame(socials_page)
 test1<-str_match(socials_frame[,1], '<a href="([^"]*).xls')
  test2<-subset(test1[,2],!is.na(test1[,2]))
-  
+ test2_df<-data.frame(test2)
+test3<-data.frame(num=1:30,url="http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/",ext=".xls")
+test3$file <-test2_df[1]
+test4 <- paste(test3[2,2],test2_df[2,1],test3[2,3])
+
+I need to delete the spaces
+
