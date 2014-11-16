@@ -151,5 +151,19 @@ socials_lines[15]
 #other options
 #sapply(strsplit(string, ":"), "[", 2)
 
+length(socials_page)
+######
+NOVEMBER WORKINGS
 
+> con2 <- url("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/socials.html")
+> socials_page=readLines(con2)
+> close(con2)
+> head(socials_page)
+(load stringr)
+> ?str_match
+
+
+socials_page=readLines(con2)
+socials_frame<-data.frame(socials_page)
+test1<-str_match(socials_frame[,1], '<a href="([^"]*).xls')
   
