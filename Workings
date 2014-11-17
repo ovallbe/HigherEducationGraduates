@@ -162,7 +162,7 @@ NOVEMBER WORKINGS
 (load stringr)
 > ?str_match
 
-
+library(stringr)
 socials_page=readLines(con2)
 socials_frame<-data.frame(socials_page)
 test1<-str_match(socials_frame[,1], '<a href="([^"]*).xls')
@@ -171,6 +171,10 @@ test1<-str_match(socials_frame[,1], '<a href="([^"]*).xls')
 test3<-data.frame(num=1:30,url="http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/",ext=".xls")
 test3$file <-test2_df[1]
 test4 <- paste(test3[2,2],test2_df[2,1],test3[2,3])
-
+test5 <- data.frame(paste(test3[,2],test2_df[,1],test3[,3]))
+lenght(test5)
 I need to delete the spaces
-
+test5 <-paste(test3[,2],test2_df[,1],test3[,3])
+test6 <- sub(" ","",test5)
+test7 <- sub(" ","",test6)
+test8 <-data.frame(test7)
