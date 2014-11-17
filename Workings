@@ -227,7 +227,7 @@ test7c <- data.frame(test7b)
 
 sapply(test7,download.file,destfile=file.path(thispath,file.path(path,basename(test7)))
 sapply(test7,download.file,destfile=file.path(thispath,file.path(thispath,basename(test7))))
-
+sapply(test7,downloadall)
 
 
 
