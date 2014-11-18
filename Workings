@@ -230,5 +230,5 @@ sapply(test7,download.file,destfile=file.path(thispath,file.path(thispath,basena
 sapply(test7,downloadall)
 
 
-
+fes que el sapply tb agafi el nom de la carpeta (agafant el username de la url previa) 
 
