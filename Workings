@@ -60,7 +60,6 @@ download.file('https://raw.github.com/fredheir/WebScraping/master/Lecture1/p1.Rp
 destfile='p1.Rmd')
 ######REGULAR EXPRESSIONS CHEAT FACT
 #http://www.endmemo.com/program/R/grep.php
-#https://developer.gnome.org/glib/stable/glib-regex-syntax.html
 #http://stackoverflow.com/questions/2443127/how-can-i-use-r-rcurl-xml-packages-to-scrape-this-webpage
 #http://stackoverflow.com/questions/3746256/extract-links-from-webpage-using-r
 #links<-strsplit(selected_lines,"a href=")[[1]]
