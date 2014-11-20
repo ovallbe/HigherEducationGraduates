@@ -304,8 +304,13 @@ fieldname2 <- sub(basename(url),"",fieldname)
 testing("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/socials.html")
 
 
+#download as if
 
 
-
+downloadall <- function(url,path=".") {
+  dest <- file.path(path,paste(basename(url)))
+  download.file(url,dest)
+  dest
+}
 
 
