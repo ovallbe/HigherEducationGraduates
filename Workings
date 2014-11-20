@@ -275,7 +275,7 @@ downloadall <- function(url,path=".") {
   fieldname2 <- sub("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio/","",fieldname)
   fieldname3<- sub("/","",fieldname2)
   dest <- file.path(path,paste(fieldname3,"_",basename(url)))
-  download.file(url,dest)
+  download.file(url,dest, mode="wb")
   dest
 }
 
@@ -309,7 +309,7 @@ testing("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/socials.html")
 
 downloadall <- function(url,path=".") {
   dest <- file.path(path,paste(basename(url)))
-  download.file(url,dest)
+  download.file(url,dest, mode="wb")
   dest
 }
 
