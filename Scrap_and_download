@@ -1,0 +1,73 @@
+getwd()
+setwd("C:/Users/NAME/Documents/R/HE_Grad")
+
+setwd("./R/HE_Grad")
+library(stringr)
+con = url("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio.html")
+html_main_page=data.frame(readLines(con))
+close(con)
+
+main1<-str_match(html_main_page[,1], "<strong><a href=.*.html")
+main2<-subset(main1[,1],!is.na(main1[,1]))
+main3<- sub("<strong><a href=.","", main2)
+
+#http://www.endmemo.com/program/R/sub.php
+
+basepath <- "http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/"
+mainlinks <-paste(basepath,main3)
+mainlinks2 <- sub(" ","",mainlinks)
+mainlinks3 <- data.frame(mainlinks)
+fieldnames <- sub(".html","",main3)
+
+#Let's construct a formula that gets all the links of each mainlink
+
+
+if(!file.exists("data")){dir.create("data")}
+dateDownloaded <-format(Sys.time(),"%Y%m%d")
+todayData <- paste("data",dateDownloaded)
+
+mainDir <- getwd()
+setwd("./data")
+dataDir <- getwd()
+setwd(mainDir)
+if(!file.exists(todayData)){dir.create(todayData)}
+setwd(mainDir)
+#setwd(file.path(mainDir,todayData))
+
+
+downloadall <- function(url,path=".") {
+  dest <- file.path(path,paste(basename(url)))
+  download.file(url,dest, mode="wb")
+  dest
+}
+
+downloadall <- function(url,path=".") {
+  fieldname <- sub(basename(url),"",url)
+  fieldname2 <- sub("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio/","",fieldname)
+  fieldname3<- sub("/","",fieldname2)
+  dest <- file.path(path,paste(fieldname3,"_",basename(url)))
+  download.file(url,dest, mode="wb")
+  dest
+}
+
+
+testing <- function (link) {
+  con <- url(link)
+  page <- data.frame(readLines(con))
+  close(con)
+  step1<-str_match(page[,1], '<a href="([^"]*).xls')
+  step2<-subset(step1[,2],!is.na(step1[,2]))
+  step3 <- paste(basepath,step2,".xls")
+  step4 <- sub(" ","",step3)
+  step5 <- sub(" ","",step4)
+  sapply(step5,downloadall,file.path(dataDir,todayData))
+  return(step5)
+}
+
+
+
+
+fieldname <- sub("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/ informes_titulacio/","",url)
+fieldname2 <- sub(basename(url),"",fieldname)
+
+testing("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/socials.html")
