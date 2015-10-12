@@ -1,0 +1,46 @@
+
+
+Function WorkSheetName() As String
+ActiveSheet.Activate
+WorkSheetName = ActiveSheet.Name
+End Function
+
+
+=WorkSheetName()
+
+
+Sub UpdateReports()
+Call RefreshPivot
+Call SaveFiles
+
+End Sub
+
+http://www.techrepublic.com/blog/10-things/10-ways-to-reference-excel-workbooks-and-sheets-using-vba/
+
+=MID(CELL("filename"),SEARCH("[",CELL("filename"))+1,SEARCH("]",CELL("filename"))-SEARCH("[",CELL("filename"))-1)
+
+To add a named range in Excel 2010, click on the Formulas ribbon and under the Defined Names group, select Define Name. This will open the New Name dialog box. Enter, FileName, in the Name box; enter =GET.CELL(66) in the Refers to box; and click OK. Finally, enter, =FileName, into a cell to return the file name of the active workbook.
+
+http://mrspreadsheets.com/blog.html
+
+
+COUNT THE NUMBER OF COLUMNS THAT CONTAIN DATA
+http://mrspreadsheets.com/1/category/vba%20code%20tutorials/1.html
+
+
+VBA CODE SNIPPET #8 - COPY WORKSHEET TO NEW WORKBOOK & SAVE
+
+http://mrspreadsheets.com/1/post/2012/08/vba-code-snippet-8-copy-worksheet-to-new-workbook-save.html
+
+
+VBA CODE SNIPPET #3 - CHECK FOR A SPECIFIC FOLDER AND CREATE IT IF IT DOESN'T EXIST
+
+http://mrspreadsheets.com/1/post/2012/08/vba-code-snippet-3-check-for-and-create-folder-if-it-doesnt-exist.html
+
+
+VBA CODE SNIPPET #2 - CHANGE ALL CHARTS TO THE SAME WIDTH AND HEIGHT
+http://mrspreadsheets.com/1/post/2012/08/vba-code-snippet-2-change-all-charts-to-the-same-width-and-height.html
+
+
+VBA CODE SNIPPET #1 - DIFFERENT FONT COLOR FOR NUMBERS AND TEXT
+http://mrspreadsheets.com/1/post/2012/08/code-snippet-1-different-font-color-for-numbers-and-text.html
