@@ -1,8 +1,30 @@
-getwd()
-setwd("C:/Users/NAME/Documents/R/HE_Grad")
 
-setwd("./R/HE_Grad")
+install.packages("stringr")
+install.packages("knitr")
+install.packages("ggplot2")
+library("stringr")
+
+
+
+#I clean the environment data
+rm(list=ls())
+
+#setwd("C:/Users/NAME/Documents")
+#setwd("C:/Users/NAME/Documents/R/HE_Grad")
+
+
+getwd()
+if (!file.exists("R")) {  dir.create("R")}
+setwd("./R")
+
+if (!file.exists("HE_Grad")) {  dir.create("HE_Grad")}
+setwd("./HE_Grad")
+getwd()
+
+
+
 library(stringr)
+
 con = url("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/informes_titulacio.html")
 html_main_page=data.frame(readLines(con))
 close(con)
@@ -26,14 +48,15 @@ if(!file.exists("data")){dir.create("data")}
 dateDownloaded <-format(Sys.time(),"%Y%m%d")
 todayData <- paste("data",dateDownloaded)
 
+
+#getwd()
 mainDir <- getwd()
 setwd("./data")
 dataDir <- getwd()
-setwd(mainDir)
 if(!file.exists(todayData)){dir.create(todayData)}
 setwd(mainDir)
 #setwd(file.path(mainDir,todayData))
-
+file.path(dataDir,todayData)
 
 downloadall <- function(url,path=".") {
   dest <- file.path(path,paste(basename(url)))
@@ -71,3 +94,14 @@ fieldname <- sub("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/ info
 fieldname2 <- sub(basename(url),"",fieldname)
 
 testing("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/socials.html")
+testing("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/humanitats.html")
+testing("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/tecnica.html")
+testing("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/salut.html")
+testing("http://www.aqu.cat/uploads/insercio_laboral/enquesta2014/experimentals.html")
+
+
+
+
+
+
+
